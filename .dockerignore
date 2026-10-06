@@ -1,0 +1,27 @@
+# Dependencies & build output (build ใหม่ใน container เอง)
+node_modules
+dist
+.tmp
+.strapi
+.tsbuildinfo
+
+# Secrets - ห้ามเข้า image เด็ดขาด (ส่งผ่าน env ตอน runtime เท่านั้น)
+.env
+.env.*
+!.env.example
+
+# Git & logs
+.git
+.gitignore
+*.log
+
+# Uploads & DB จริง
+public/uploads/*
+!public/uploads/.gitkeep
+
+# Files ที่ไม่เกี่ยวกับการ build
+ตัวอย่าง/
+README.md
+Dockerfile
+docker-compose.yml
+.dockerignore

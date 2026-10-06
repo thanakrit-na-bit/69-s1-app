@@ -1,0 +1,55 @@
+{
+  "kind": "collectionType",
+  "collectionName": "movies",
+  "info": {
+    "singularName": "movie",
+    "pluralName": "movies",
+    "displayName": "Movie",
+    "description": "ระบบจัดเก็บข้อมูลภาพยนตร์ (คลังหนัง)"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "minLength": 3,
+      "maxLength": 120
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true,
+      "unique": true
+    },
+    "synopsis": {
+      "type": "text"
+    },
+    "genre": {
+      "type": "enumeration",
+      "enum": ["action", "comedy", "horror", "drama", "scifi"],
+      "required": true
+    },
+    "release_year": {
+      "type": "integer",
+      "min": 1888
+    },
+    "duration_min": {
+      "type": "integer",
+      "min": 1
+    },
+    "poster": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["image"]
+    },
+    "reviews": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::review.review",
+      "mappedBy": "movie"
+    }
+  }
+}

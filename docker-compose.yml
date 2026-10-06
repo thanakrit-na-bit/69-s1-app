@@ -1,0 +1,23 @@
+services:
+  strapi:
+    image: thanakrit/strapi:1.0
+    build: .
+    container_name: thanakrit-strapi
+    restart: unless-stopped
+    ports:
+      - "1337:1337"
+    env_file:
+      - .env
+    environment:
+      HOST: 0.0.0.0
+      PORT: 1337
+      NODE_ENV: production
+    volumes:
+      - strapi_data:/app/.tmp
+      - strapi_uploads:/app/public/uploads
+
+volumes:
+  strapi_data:
+    name: thanakrit_strapi_data
+  strapi_uploads:
+    name: thanakrit_strapi_uploads

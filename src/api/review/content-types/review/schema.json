@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "reviews",
+  "info": {
+    "singularName": "review",
+    "pluralName": "reviews",
+    "displayName": "Review",
+    "description": "ระบบจัดเก็บรีวิวภาพยนตร์พร้อมมาตรการความปลอดภัย MD5 และ AES-256"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "reviewer_name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 80
+    },
+    "score": {
+      "type": "decimal",
+      "required": true,
+      "min": 0,
+      "max": 10
+    },
+    "comment": {
+      "type": "text"
+    },
+    "phone": {
+      "type": "string",
+      "description": "เบอร์โทรศัพท์ผู้รีวิว (ถูกเข้ารหัส AES-256 ก่อนบันทึกลงฐานข้อมูล)"
+    },
+    "integrity_hash": {
+      "type": "string",
+      "description": "ค่า MD5 Checksum สำหรับตรวจจับการแอบแก้ไขข้อมูลรีวิว"
+    },
+    "movie": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::movie.movie",
+      "inversedBy": "reviews"
+    }
+  }
+}
