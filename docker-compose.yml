@@ -1,6 +1,6 @@
 services:
   strapi:
-    image: thanakrit/strapi:1.0
+    image: thanakrit/strapi5:1.0
     build: .
     container_name: thanakrit-strapi
     restart: unless-stopped

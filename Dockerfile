@@ -1,6 +1,6 @@
 # ============================================
 # Strapi 5 - 69-s1-app2
-# Docker image: thanakrit/strapi:1.0
+# Docker image: thanakrit/strapi5:1.0
 # ============================================
 
 # ---------- Stage 1: Build (compile TS + admin panel) ----------
